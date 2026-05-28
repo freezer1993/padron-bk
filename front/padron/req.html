@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<p>Click to make a request to create a user at the reqres.in test endpoint.</p> 
+<p>The <code>responseText</code> confirming a new user has been created is printed below in its original JSON text format. The parsed version using <code>JSON.parse()</code> is logged as a JavaScript object in the console.</p>
+<button onclick="showResult()">Make POST request!</button>
+<div id="output"></div>
+<script>
+function showResult() {
+const user = {
+    "local" : 358,
+    "mesa" : 7,
+    "orden" : 201,
+    "user" : 1
+}
+const req = new XMLHttpRequest();
+req.open('POST', 'http://173.214.162.219:3000/padron/ordenins');
+req.setRequestHeader("Content-Type", "application/json");
+req.setRequestHeader('Authorization', 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im5hY2hvIiwiaWF0IjoxNjcwNzc2MzE1LCJleHAiOjE2NzA4NjI3MTV9.KKwsEp1riTt6zpDSSuxRLv0EJcvfzVda9hjllN8I1eU');
+req.addEventListener('load', function() {
+if (req.readyState === 4 && req.status === 201) {
+document.getElementById('output').textContent = req.responseText;
+const res = JSON.parse(req.responseText);
+console.log(res);
+} else {
+console.log(JSON.parse(req.responseText));
+}
+});
+req.send(JSON.stringify(user));
+};
+</script>
+  
+</body>
+</html>

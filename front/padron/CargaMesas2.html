@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Carga de Mesas</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/elecciones.png" type="image/x-icon" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="css/mdb.min.css" />
+
+  <link rel="stylesheet" href="css/loading.css" />
+</head>
+
+<body>
+  <section class="vh-100">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+          data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Navbar brand -->
+          <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <img src="img/elecciones.png" height="30" alt="padron" loading="lazy" />
+          </a>
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Carga de Mesas</a>
+            </li>
+          </ul>
+          <!-- Left links -->
+        </div>
+        <!-- Collapsible wrapper -->
+
+        <div class="d-flex align-items-center">
+          <button type="button" class="btn btn-link px-3 me-2">
+            USUARIO JUAN PEREZ
+          </button>
+          <button type="button" class="btn btn-primary me-3">
+            SALIR
+          </button>
+        </div>
+      </div>
+      <!-- Right elements -->
+      </div>
+      <!-- Container wrapper -->
+    </nav>
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-10 col-lg-10 col-xl-10 " style="margin-top: 20px; margin-bottom:20px">
+          <form class="row gy-2 gx-3 align-items-center">
+            <div id="content">
+              <div id="output" style="text-align: center"></div>
+              <div id="fade"></div>
+              <div id="modal">
+                <img src="img/loading-gif.gif" width="10%" />
+                <p>CARGANDO ESPERE UN MOMENTO</p>
+              </div>
+            </div>
+            <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+              <p class="lead fw-normal mb-0 me-3">Cargar nro de orden del Votante</p>
+            </div>
+
+            <div class="divider d-flex align-items-center my-4">
+              <!-- <p class="text-center fw-bold mx-3 mb-0">Or</p> -->
+            </div>
+
+            <div class="col-auto">
+              <div class="form-outline">
+                <input type="number" id="idLocal" class="form-control" style="max-width: 120px;" value="358"
+                  disabled />
+                <label class="form-label" for="idLocal">Local</label>
+              </div>
+            </div>
+            <div class="col-auto">
+              <div class="form-outline">
+                <input type="number" id="idMesa" class="form-control" style="max-width: 120px;" value="7"
+                  disabled />
+                <label class="form-label" for="idMesa">Mesa</label>
+              </div>
+            </div>
+            <div class="col-auto">
+              <div class="form-outline">
+                <input type="number" id="idOrden" class="form-control" required/>
+                <label class="form-label" for="idOrden">Numero de Orden</label>
+              </div>
+            </div>
+            <div class="col-auto">
+              <button onclick="cargarOrden()" type="button" class="btn btn-primary">Cargar</button>
+            </div>
+
+          </form>
+          <div style="background-color:#EAECEE; margin: 15px 15px 15px 15px;">
+            <div style="text-align: center"><b>Ordenes cargadas</b></div>
+            <table class="table" id="table">
+              <thead>
+                <tr>
+                  <th scope="col">Mesa</th>
+                  <th scope="col">Local</th>
+                  <th scope="col">Orden</th>
+                  <th scope="col">Ci</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"></th>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+      <!-- Copyright -->
+      <div class="text-white mb-3 mb-md-0">
+        Copyright © 2020. All rights reserved.
+      </div>
+      <!-- Copyright -->
+
+      <!-- Right -->
+      <div>
+        <a href="#!" class="text-white me-4">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#!" class="text-white me-4">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#!" class="text-white me-4">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="#!" class="text-white">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </div>
+  </section>
+
+  <!-- MDB -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript" src="js/CargaMesas.js"></script>
+  <!-- Custom scripts -->
+  <script type="text/javascript"></script>
+</body>
+
+</html>
